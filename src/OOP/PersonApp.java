@@ -1,5 +1,6 @@
 package OOP;
 
+
 public class PersonApp {
 
 	public static void main(String[] args) {
@@ -24,9 +25,34 @@ public class PersonApp {
 		person1.sayHello("Eliza");
 		// menggunakan method
 		
-		var person3 = new vicePresident("Dermawan");
+		var person3 = new VicePresident("Dermawan");
 		person3.sayHello("Bujang");
 		// penggunaan class child
+		
+		Employee employee = new Employee("Daffa");
+		employee.sayHello("Buddy");
+		Employee manager = new Manager("Dermawan");
+		manager.sayHello("Buddy");
+		Employee viceEmployee = new VicePresident("Daffa");
+		viceEmployee.sayHello("Buddy");
+		// polimorfisme
+		
+		sayHello(new Employee("Daffa")); 
+		sayHello(new Manager("Dermawan")); 
+		sayHello(new VicePresident("Kulosa")); 
+		//type check and cast
+				
 	}
 
+	static void sayHello(Employee employee) {
+		if(employee instanceof VicePresident) {
+			VicePresident vicePresident = (VicePresident) employee;
+			System.out.println("Hello " + vicePresident.name);
+		} else if(employee instanceof Manager) {
+			Manager manager = (Manager) employee;
+			System.out.println("Hello " + manager.name);
+		} else {
+			System.out.println("Hello " + employee.name);
+		}
+	}
 }
