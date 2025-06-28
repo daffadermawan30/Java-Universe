@@ -1,7 +1,9 @@
 package OOP.application;
 
+import OOP.annotation.Fancy;
 import OOP.data.*;
 
+@Fancy(name = "AnimalApp", tags = {"application","Java"})
 public class AnimalApp {
 
 	public static void main(String[] args) {
